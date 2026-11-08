@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://db1qd1gb1y782"]
+
+[ext_resource type="Texture2D" uid="uid://d0nsxi0bkvtve" path="res://assets/images/cauldron.jpg" id="1_bi80w"]
+[ext_resource type="Script" uid="uid://mjmxwr8mcvm1" path="res://scripts/cauldron.gd" id="1_l3ke8"]
+[ext_resource type="PackedScene" uid="uid://dxmk03w6hktwg" path="res://scenes/enemy_carrot.tscn" id="3_au12p"]
+
+[node name="Cauldron" type="Node2D" unique_id=2066713763]
+script = ExtResource("1_l3ke8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852506062]
+texture = ExtResource("1_bi80w")
+
+[node name="EnemyCarrot" parent="." unique_id=1753716930 instance=ExtResource("3_au12p")]
+position = Vector2(-66, -64)
+rotation = -0.69926864
+scale = Vector2(0.25, 0.25)
+
+[node name="Timer" type="Timer" parent="." unique_id=1751061029]
+wait_time = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1768118844]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

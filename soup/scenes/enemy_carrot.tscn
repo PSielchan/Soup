@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dxmk03w6hktwg"]
+
+[ext_resource type="Texture2D" uid="uid://dculidv26v6tn" path="res://assets/images/carrot_enemy.png" id="1_lrvbj"]
+[ext_resource type="Script" uid="uid://kx6yvqk1y8yh" path="res://scripts/enemy.gd" id="2_p2xov"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_84h40"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84h40"]
+size = Vector2(58, 254)
+
+[node name="EnemyCarrot" type="Node2D" unique_id=2030326025]
+script = ExtResource("2_p2xov")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1049439158]
+physics_material_override = SubResource("PhysicsMaterial_84h40")
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=56698218]
+position = Vector2(-12, 19)
+shape = SubResource("RectangleShape2D_84h40")
+
+[node name="EnemyCarrot" type="Sprite2D" parent="RigidBody2D" unique_id=1753716930]
+texture = ExtResource("1_lrvbj")
