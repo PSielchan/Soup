@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ek8nrseh2uhm" path="res://assets/images/bigos.png" id="1_c2u1v"]
 [ext_resource type="Script" uid="uid://dbwi45pbi1y4f" path="res://scripts/options.gd" id="1_yjkok"]
+[ext_resource type="Texture2D" uid="uid://ebji37mxhmhg" path="res://assets/images/slide_hangle.png" id="3_2iy26"]
 
 [node name="Options" type="Node2D" unique_id=1024408769]
 script = ExtResource("1_yjkok")
@@ -19,4 +20,50 @@ offset_right = 668.0
 offset_bottom = 606.0
 text = "Return"
 
+[node name="SFX" type="HSlider" parent="." unique_id=1750279247]
+offset_left = 339.0
+offset_top = 292.0
+offset_right = 839.0
+offset_bottom = 324.0
+theme_override_icons/grabber = ExtResource("3_2iy26")
+theme_override_icons/grabber_highlight = ExtResource("3_2iy26")
+theme_override_icons/grabber_disabled = ExtResource("3_2iy26")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="SFX" unique_id=491865771]
+layout_mode = 0
+offset_left = 215.0
+offset_top = -46.0
+offset_right = 276.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[node name="OST" type="HSlider" parent="." unique_id=1477331267]
+offset_left = 339.0
+offset_top = 411.0
+offset_right = 839.0
+offset_bottom = 443.0
+theme_override_icons/grabber = ExtResource("3_2iy26")
+theme_override_icons/grabber_highlight = ExtResource("3_2iy26")
+theme_override_icons/grabber_disabled = ExtResource("3_2iy26")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="OST" unique_id=1284413318]
+layout_mode = 0
+offset_left = 215.0
+offset_top = -44.0
+offset_right = 276.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "OST"
+
 [connection signal="button_down" from="TextureRect/Return" to="." method="_on_return_button_down"]
+[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="OST" to="." method="_on_ost_value_changed"]

@@ -3,10 +3,14 @@ extends Node
 @onready var _ost = $OST
 @onready var _sfx = $SFX
 @onready var _current_music := ""
+@onready var _current_music_volume = 1.0
+@onready var _current_sfx_volume = 1.0
+@onready var _sfx_index : int = AudioServer.get_bus_index("SFX")
+@onready var _music_index : int = AudioServer.get_bus_index("OST")
 	
 func _ready() -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(0.5))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("OST"), linear_to_db(0.5))
+	AudioServer.set_bus_volume_db(_sfx_index, linear_to_db(_current_sfx_volume))
+	AudioServer.set_bus_volume_db(_music_index, linear_to_db(_current_music_volume))
 
 
 func play_music(name: String) -> void:
@@ -20,10 +24,18 @@ func play_effect(name: String) -> void:
 
 
 func set_music_volume(value: float) -> void:
-	var index = AudioServer.get_bus_index("OST")
-	var db = str(AudioServer.get_bus_volume_db(index))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("OST"), linear_to_db(value))
+	_current_music_volume = value
+	AudioServer.set_bus_volume_db(_music_index, linear_to_db(_current_music_volume))
+
+	
+func get_music_volume() -> float:
+	return _current_music_volume
+
+
+func get_sfx_volume() -> float:
+	return _current_sfx_volume
 
 
 func set_effects_volume(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+	_current_sfx_volume = value
+	AudioServer.set_bus_volume_db(_sfx_index, linear_to_db(_current_sfx_volume))
