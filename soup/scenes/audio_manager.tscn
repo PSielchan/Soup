@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://iktbhjk1ujvx"]
+
+[ext_resource type="Script" uid="uid://b5htunbut5swu" path="res://scripts/audio/audio_manager.gd" id="1_liach"]
+[ext_resource type="Script" uid="uid://dj2n1uhafytat" path="res://scripts/audio/ost.gd" id="2_m6ggh"]
+[ext_resource type="Script" uid="uid://cxqslw64efawp" path="res://scripts/audio/sfx.gd" id="4_aoitu"]
+
+[node name="AudioManager" type="Node" unique_id=1815659659]
+script = ExtResource("1_liach")
+
+[node name="OST" type="Node" parent="." unique_id=350212837]
+script = ExtResource("2_m6ggh")
+
+[node name="Player" type="AudioStreamPlayer" parent="OST" unique_id=712845514]
+bus = &"OST"
+
+[node name="SFX" type="Node" parent="." unique_id=1712946161]
+script = ExtResource("4_aoitu")
+
+[node name="Player" type="AudioStreamPlayer" parent="SFX" unique_id=1843858046]

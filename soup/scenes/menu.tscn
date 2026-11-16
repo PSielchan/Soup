@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cmii0bh11uwl8"]
+
+[ext_resource type="Script" uid="uid://5pqyhsc2owki" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://ek8nrseh2uhm" path="res://assets/images/bigos.png" id="1_yqeox"]
+
+[node name="Menu" type="Node2D" unique_id=752237910]
+script = ExtResource("1_vjb58")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1133367529]
+offset_right = 1154.0
+offset_bottom = 648.0
+texture = ExtResource("1_yqeox")
+
+[node name="Start" type="Button" parent="." unique_id=1110021358]
+offset_left = 542.00006
+offset_top = 543.0
+offset_right = 692.00006
+offset_bottom = 618.0
+scale = Vector2(0.99331516, 1.0032809)
+text = "Start"
+
+[node name="Options" type="Button" parent="." unique_id=1097466398]
+offset_left = 272.0
+offset_top = 543.0
+offset_right = 422.0
+offset_bottom = 618.0
+text = "Options"
+
+[node name="Credits" type="Button" parent="." unique_id=1643269742]
+offset_left = 803.0
+offset_top = 543.0
+offset_right = 953.0
+offset_bottom = 618.0
+scale = Vector2(1, 0.95)
+text = "Credits"
+
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="Credits" to="." method="_on_credits_button_down"]

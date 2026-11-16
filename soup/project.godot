@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Soup"
+run/main_scene="uid://cmii0bh11uwl8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*uid://iktbhjk1ujvx"
 
 [display]
 
